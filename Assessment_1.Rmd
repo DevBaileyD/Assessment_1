@@ -9,14 +9,33 @@ output: html_document
 
 ```{r Chunk 1, message = FALSE, warning = FALSE, eval = TRUE, echo = FALSE}
 library(tidyverse)
+library(knitr)
+library(dplyr)
 ```
 
-```{r Chunk 2, eval = TRUE, echo = TRUE}
+```{r LoadDataset, eval = TRUE, echo = TRUE}
 
+# Read in dataset 
 LifeExp_data <- read.csv("data/life-expectancy-un-vs-gdp-per-capita-wb.csv")
 
-glimpse(LifeExp_data)
+# Data cleanup and wrangling to ensure data fits correct specifications for assessment 1
+LifeExp_data <- LifeExp_data %>%
+  # rename columns to simplify
+  rename(
+    Country = Entity,
+    Life_expectancy = Life.expectancy...Sex..all...Age..0...Variant..estimates,
+    GDP_per_capita = GDP.per.capita..PPP..constant.2017.international...,
+    Population = Population..historical.
+  ) %>% 
+  # Select only relevant variables 
+  select(Country, Year, Life_expectancy, GDP_per_capita, Population) %>% 
+  # Remove missing values 
+  filter(!is.na(GDP_per_capita) & !is.na(Life_expectancy) & !is.na(Population)) %>% 
+  # Filter to keep four years (in 5-year intervals), reducing rows to < 1000
+  filter(Year %in% c(2005, 2010, 2015, 2020))
+  
 
+glimpse(LifeExp_data)
 ```
 
 
