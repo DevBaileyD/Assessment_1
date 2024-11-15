@@ -1,0 +1,37 @@
+---
+title: "Assessment_1"
+author: "Bailey Dalton"
+date: "2024-11-11"
+output: html_document
+---
+
+#### Section 1: Loading Libraries
+
+```{r Chunk 1, message = FALSE, warning = FALSE, eval = TRUE, echo = FALSE}
+library(tidyverse)
+```
+
+```{r Chunk 2, eval = TRUE, echo = TRUE}
+
+LifeExp_data <- read.csv("data/life-expectancy-un-vs-gdp-per-capita-wb.csv")
+
+glimpse(LifeExp_data)
+
+```
+
+
+
+
+#### Section 2: Research Question 
+
+
+
+
+
+#### Section 3: Data Set Introduction
+
+
+
+
+
+#### Section 4: Data Set Description 
