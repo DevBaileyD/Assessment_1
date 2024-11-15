@@ -39,12 +39,9 @@ glimpse(LifeExp_data)
 ```
 
 
-
-
 #### Section 2: Research Question 
 
-
-
+This report will explore the relationship between GDP per capita, a key indicator of a country's wealth, and its correlation with life expectancy and population across multiple countries from 2005 to 2020. The analysis aims to determine whether GDP directly influences both life expectancy and population size during this period.
 
 
 #### Section 3: Data Set Introduction

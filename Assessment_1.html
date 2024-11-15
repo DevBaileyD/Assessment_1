@@ -359,21 +359,42 @@ display: none;
 
 <div id="section-1-loading-libraries" class="section level4">
 <h4>Section 1: Loading Libraries</h4>
-<pre class="r"><code>LifeExp_data &lt;- read.csv(&quot;data/life-expectancy-un-vs-gdp-per-capita-wb.csv&quot;)
+<pre class="r"><code># Read in dataset 
+LifeExp_data &lt;- read.csv(&quot;data/life-expectancy-un-vs-gdp-per-capita-wb.csv&quot;)
+
+# Data cleanup and wrangling to ensure data fits correct specifications for assessment 1
+LifeExp_data &lt;- LifeExp_data %&gt;%
+  # rename columns to simplify
+  rename(
+    Country = Entity,
+    Life_expectancy = Life.expectancy...Sex..all...Age..0...Variant..estimates,
+    GDP_per_capita = GDP.per.capita..PPP..constant.2017.international...,
+    Population = Population..historical.
+  ) %&gt;% 
+  # Select only relevant variables 
+  select(Country, Year, Life_expectancy, GDP_per_capita, Population) %&gt;% 
+  # Remove missing values 
+  filter(!is.na(GDP_per_capita) &amp; !is.na(Life_expectancy) &amp; !is.na(Population)) %&gt;% 
+  # Filter to keep four years (in 5-year intervals), reducing rows to &lt; 1000
+  filter(Year %in% c(2005, 2010, 2015, 2020))
+  
 
 glimpse(LifeExp_data)</code></pre>
-<pre><code>## Rows: 59,858
-## Columns: 7
-## $ Entity                                                   &lt;chr&gt; &quot;Abkhazia&quot;, &quot;…
-## $ Code                                                     &lt;chr&gt; &quot;OWID_ABK&quot;, &quot;…
-## $ Year                                                     &lt;int&gt; 2015, 1950, 1…
-## $ Life.expectancy...Sex..all...Age..0...Variant..estimates &lt;dbl&gt; NA, 28.156, 2…
-## $ GDP.per.capita..PPP..constant.2017.international...      &lt;dbl&gt; NA, NA, NA, N…
-## $ Population..historical.                                  &lt;dbl&gt; NA, 7776182, …
-## $ Continent                                                &lt;chr&gt; &quot;Asia&quot;, &quot;&quot;, &quot;…</code></pre>
+<pre><code>## Rows: 787
+## Columns: 5
+## $ Country         &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanis…
+## $ Year            &lt;int&gt; 2005, 2010, 2015, 2020, 2005, 2010, 2015, 2020, 2005, …
+## $ Life_expectancy &lt;dbl&gt; 58.247, 60.702, 62.270, 61.454, 76.427, 78.414, 78.358…
+## $ GDP_per_capita  &lt;dbl&gt; 1352.321, 2026.164, 2108.714, 1968.341, 8040.121, 1074…
+## $ Population      &lt;dbl&gt; 24404574, 28284088, 33831765, 39068978, 3076155, 29287…</code></pre>
 </div>
 <div id="section-2-research-question" class="section level4">
 <h4>Section 2: Research Question</h4>
+<p>This report will explore the relationship between GDP per capita, a
+key indicator of a country’s wealth, and its correlation with life
+expectancy and population across multiple countries from 2005 to 2020.
+The analysis aims to determine whether GDP directly influences both life
+expectancy and population size during this period.</p>
 </div>
 <div id="section-3-data-set-introduction" class="section level4">
 <h4>Section 3: Data Set Introduction</h4>
