@@ -97,6 +97,7 @@ summary_table <- gdp_life_exp_data %>%
 kable(summary_table, caption = "Summary table statistics of GDP per capita and Life expectancy by country")
 ```
 
+### Section 6: Visualisations 
 
 
 
