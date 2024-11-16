@@ -77,6 +77,14 @@ str(LifeExp_data[1:2, ])
 
 ### Section 5: Data Summary
 
+```{r}
+gdp_life_exp_data <- LifeExp_data %>% 
+  select(
+    Country, 
+    Life_expectancy, 
+    GDP_per_capita
+  )
+```
 
 
 

@@ -460,6 +460,22 @@ variables.</p>
 Screenshot of Code
 </p>
 </div>
+<pre class="r"><code>str(LifeExp_data[1:2, ])</code></pre>
+<pre><code>## &#39;data.frame&#39;:    2 obs. of  5 variables:
+##  $ Country        : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot;
+##  $ Year           : int  2005 2010
+##  $ Life_expectancy: num  58.2 60.7
+##  $ GDP_per_capita : num  1352 2026
+##  $ Population     : num  24404574 28284088</code></pre>
+</div>
+<div id="section-5-data-summary" class="section level3">
+<h3>Section 5: Data Summary</h3>
+<pre class="r"><code>gdp_life_exp_data &lt;- LifeExp_data %&gt;% 
+  select(
+    Country, 
+    Life_expectancy, 
+    GDP_per_capita
+  )</code></pre>
 </div>
 
 
