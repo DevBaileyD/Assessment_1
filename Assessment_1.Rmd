@@ -5,7 +5,7 @@ date: "2024-11-11"
 output: html_document
 ---
 
-#### Section 1: Loading Libraries
+### Section 1: Loading Libraries
 
 ```{r Chunk 1, message = FALSE, warning = FALSE, eval = TRUE, echo = FALSE}
 library(tidyverse)
@@ -39,15 +39,38 @@ glimpse(LifeExp_data)
 ```
 
 
-#### Section 2: Research Question 
+### Section 2: Research Question 
 
 This report will explore the relationship between GDP per capita, a key indicator of a country's wealth, and its correlation with life expectancy and population across multiple countries from 2005 to 2020. The analysis aims to determine whether GDP directly influences both life expectancy and population size during this period.
 
 
-#### Section 3: Data Set Introduction
+### Section 3: Data Set Introduction
+
+The data used in this report (available [here](https://ourworldindata.org/life-expectancy)) is sourced from the _Life Expectancy vs. GDP per Capita, 2022_ chart found in the _Population and Demographic Change_ topic on [Our World in Data](https://ourworldindata.org/). It is intended to investigate the relationship between life expectancy and various economic and demographic variables across multiple countries over several decades. A link to the locatino of the data used in this report is provided. 
+
+The dataset includes variables such as **Country**, **Year**, **GDP per Capita**, **Life Expectancy**, and **Population**, with thousands of observations across many countries and years. These variables provide insights into the economic and demographic factors that influence life expectancy globally.
+
+```{r}
+
+# Retrieve the variable names from LifeExp_data
+variable_names <- colnames(LifeExp_data)
+
+variable_names_table <- data.frame(variable_names)
+
+
+kable(variable_names_table, caption = "Table of column names")
+```
+
+
+### Section 4: Data Set Description 
 
 
 
 
 
-#### Section 4: Data Set Description 
+
+
+
+
+
+

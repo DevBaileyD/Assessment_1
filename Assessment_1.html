@@ -357,8 +357,8 @@ display: none;
 </div>
 
 
-<div id="section-1-loading-libraries" class="section level4">
-<h4>Section 1: Loading Libraries</h4>
+<div id="section-1-loading-libraries" class="section level3">
+<h3>Section 1: Loading Libraries</h3>
 <pre class="r"><code># Read in dataset 
 LifeExp_data &lt;- read.csv(&quot;data/life-expectancy-un-vs-gdp-per-capita-wb.csv&quot;)
 
@@ -388,19 +388,64 @@ glimpse(LifeExp_data)</code></pre>
 ## $ GDP_per_capita  &lt;dbl&gt; 1352.321, 2026.164, 2108.714, 1968.341, 8040.121, 1074…
 ## $ Population      &lt;dbl&gt; 24404574, 28284088, 33831765, 39068978, 3076155, 29287…</code></pre>
 </div>
-<div id="section-2-research-question" class="section level4">
-<h4>Section 2: Research Question</h4>
+<div id="section-2-research-question" class="section level3">
+<h3>Section 2: Research Question</h3>
 <p>This report will explore the relationship between GDP per capita, a
 key indicator of a country’s wealth, and its correlation with life
 expectancy and population across multiple countries from 2005 to 2020.
 The analysis aims to determine whether GDP directly influences both life
 expectancy and population size during this period.</p>
 </div>
-<div id="section-3-data-set-introduction" class="section level4">
-<h4>Section 3: Data Set Introduction</h4>
+<div id="section-3-data-set-introduction" class="section level3">
+<h3>Section 3: Data Set Introduction</h3>
+<p>The data used in this report (available <a href="https://ourworldindata.org/life-expectancy">here</a>) is sourced
+from the <em>Life Expectancy vs. GDP per Capita, 2022</em> chart found
+in the <em>Population and Demographic Change</em> topic on <a href="https://ourworldindata.org/">Our World in Data</a>. It is intended
+to investigate the relationship between life expectancy and various
+economic and demographic variables across multiple countries over
+several decades. A link to the locatino of the data used in this report
+is provided.</p>
+<p>The dataset includes variables such as <strong>Country</strong>,
+<strong>Year</strong>, <strong>GDP per Capita</strong>, <strong>Life
+Expectancy</strong>, and <strong>Population</strong>, with thousands of
+observations across many countries and years. These variables provide
+insights into the economic and demographic factors that influence life
+expectancy globally.</p>
+<pre class="r"><code># Retrieve the variable names from LifeExp_data
+variable_names &lt;- colnames(LifeExp_data)
+
+variable_names_table &lt;- data.frame(variable_names)
+
+
+kable(variable_names_table, caption = &quot;Table of column names&quot;)</code></pre>
+<table>
+<caption>Table of column names</caption>
+<thead>
+<tr class="header">
+<th align="left">variable_names</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Country</td>
+</tr>
+<tr class="even">
+<td align="left">Year</td>
+</tr>
+<tr class="odd">
+<td align="left">Life_expectancy</td>
+</tr>
+<tr class="even">
+<td align="left">GDP_per_capita</td>
+</tr>
+<tr class="odd">
+<td align="left">Population</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="section-4-data-set-description" class="section level4">
-<h4>Section 4: Data Set Description</h4>
+<div id="section-4-data-set-description" class="section level3">
+<h3>Section 4: Data Set Description</h3>
 </div>
 
 
