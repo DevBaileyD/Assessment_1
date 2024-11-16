@@ -475,7 +475,15 @@ Screenshot of Code
     Country, 
     Life_expectancy, 
     GDP_per_capita
-  )</code></pre>
+  )
+
+summary_table &lt;- gdp_life_exp_data %&gt;% 
+  group_by(Country) %&gt;% 
+  summarise(mean_GDP_per_capita = mean((GDP_per_capita), na.rm = TRUE),
+            mean_life_exp = mean((Life_expectancy), na.rm = TRUE), 
+            variance_GDP = var((GDP_per_capita), na.rm = TRUE), 
+            median_life_exp = median((Life_expectancy), na.rm = TRUE)) %&gt;% 
+  head(10)</code></pre>
 </div>
 
 
