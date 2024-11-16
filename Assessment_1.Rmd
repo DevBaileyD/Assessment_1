@@ -84,6 +84,16 @@ Population_life_exp_data <- LifeExp_data %>%
     Life_expectancy, 
     Country
   )
+
+summary_table <- Population_life_exp_data %>% 
+  group_by(Country) %>% 
+  summarise(mean_pop = mean((Population), na.rm = TRUE),
+            mean_life_exp = mean((Life_expectancy), na.rm = TRUE),
+            max_populatin = max((Population), na.rm = TRUE),
+            max_lifeExp = max((Life_expectancy), na.rm = TRUE))
+
+kable(summary_table, caption = "Mean of population and Life expectancy by country")
+
 ```
 
 
