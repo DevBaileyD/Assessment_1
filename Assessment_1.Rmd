@@ -77,6 +77,14 @@ str(LifeExp_data[1:2, ])
 
 ### Section 5: Data Summary
 
+```{r}
+Population_life_exp_data <- LifeExp_data %>% 
+  select(
+    Population, 
+    Life_expectancy, 
+    Country
+  )
+```
 
 
 
