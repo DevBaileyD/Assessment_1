@@ -483,7 +483,102 @@ summary_table &lt;- gdp_life_exp_data %&gt;%
             mean_life_exp = mean((Life_expectancy), na.rm = TRUE), 
             variance_GDP = var((GDP_per_capita), na.rm = TRUE), 
             median_life_exp = median((Life_expectancy), na.rm = TRUE)) %&gt;% 
-  head(10)</code></pre>
+  arrange(mean_GDP_per_capita) %&gt;% 
+  head(10)
+
+kable(summary_table, caption = &quot;Summary table statistics of GDP per capita and Life expectancy by country&quot;)</code></pre>
+<table>
+<caption>Summary table statistics of GDP per capita and Life expectancy
+by country</caption>
+<colgroup>
+<col width="31%" />
+<col width="21%" />
+<col width="15%" />
+<col width="14%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Country</th>
+<th align="right">mean_GDP_per_capita</th>
+<th align="right">mean_life_exp</th>
+<th align="right">variance_GDP</th>
+<th align="right">median_life_exp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Burundi</td>
+<td align="right">773.3496</td>
+<td align="right">58.20425</td>
+<td align="right">1796.77549</td>
+<td align="right">58.5975</td>
+</tr>
+<tr class="even">
+<td align="left">Democratic Republic of Congo</td>
+<td align="right">918.2909</td>
+<td align="right">57.37450</td>
+<td align="right">20498.90551</td>
+<td align="right">57.5345</td>
+</tr>
+<tr class="odd">
+<td align="left">Central African Republic</td>
+<td align="right">939.7557</td>
+<td align="right">49.40200</td>
+<td align="right">22672.28575</td>
+<td align="right">49.4015</td>
+</tr>
+<tr class="even">
+<td align="left">Niger</td>
+<td align="right">1077.1052</td>
+<td align="right">57.28500</td>
+<td align="right">13790.01828</td>
+<td align="right">57.9650</td>
+</tr>
+<tr class="odd">
+<td align="left">Mozambique</td>
+<td align="right">1098.6315</td>
+<td align="right">56.86575</td>
+<td align="right">41757.30645</td>
+<td align="right">56.8755</td>
+</tr>
+<tr class="even">
+<td align="left">Malawi</td>
+<td align="right">1344.5065</td>
+<td align="right">59.44900</td>
+<td align="right">31199.62363</td>
+<td align="right">60.0555</td>
+</tr>
+<tr class="odd">
+<td align="left">Liberia</td>
+<td align="right">1404.0040</td>
+<td align="right">59.15950</td>
+<td align="right">20465.93093</td>
+<td align="right">59.3030</td>
+</tr>
+<tr class="even">
+<td align="left">Sierra Leone</td>
+<td align="right">1429.5264</td>
+<td align="right">53.84525</td>
+<td align="right">26343.72607</td>
+<td align="right">53.6905</td>
+</tr>
+<tr class="odd">
+<td align="left">Somalia</td>
+<td align="right">1450.3730</td>
+<td align="right">56.07550</td>
+<td align="right">78.94966</td>
+<td align="right">56.0755</td>
+</tr>
+<tr class="even">
+<td align="left">Madagascar</td>
+<td align="right">1494.6594</td>
+<td align="right">62.33225</td>
+<td align="right">1552.11862</td>
+<td align="right">62.6515</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

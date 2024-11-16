@@ -91,7 +91,10 @@ summary_table <- gdp_life_exp_data %>%
             mean_life_exp = mean((Life_expectancy), na.rm = TRUE), 
             variance_GDP = var((GDP_per_capita), na.rm = TRUE), 
             median_life_exp = median((Life_expectancy), na.rm = TRUE)) %>% 
+  arrange(mean_GDP_per_capita) %>% 
   head(10)
+
+kable(summary_table, caption = "Summary table statistics of GDP per capita and Life expectancy by country")
 ```
 
 
