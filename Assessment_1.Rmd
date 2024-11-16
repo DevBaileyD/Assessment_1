@@ -67,19 +67,15 @@ kable(variable_names_table, caption = "Table of column names")
 
 The data set has undergone data wrangling and cleanup to ensure that it fits within the desired assessment specifications. The main transformations include selecting only the 5 columns/variables listed above, removing missing values and filtering the Years variables for 5 year intervals starting at 2005. Following these transformations, the dataset is ready for analysis and contains `r nrow(LifeExp_data)` observatinos and `r ncol(LifeExp_data)` variables. 
 
-# Display the number of rows (observations) and columns (variables) in the dataset
-n_obs <- nrow(LifeExp_data)
-n_vars <- ncol(LifeExp_data)
-
-# Create a sentence using inline R code
-cat("The dataset contains", n_obs, "observations and", n_vars, "variables.")
-
-```{r}
-knitr::include_graphics("~/Image/Screenshot_code.png")
+```{r figure 1, fig.align= "center", fig.cap="Screenshot of Code", out.height= "70%", out.width= "70%"}
+knitr::include_graphics("Image/Screenshot_code.PNG")
 ```
 
+```{r variable type, eval = TRUE, echo = TRUE}
+str(LifeExp_data[1:2, ])
+```
 
-
+### Section 5: Data Summary
 
 
 
