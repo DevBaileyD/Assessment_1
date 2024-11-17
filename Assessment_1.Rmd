@@ -98,6 +98,29 @@ summary_table <- gdp_life_exp_data %>%
 kable(summary_table, caption = "Summary table statistics of GDP per capita and Life expectancy by country")
 ```
 
+```{r}
+# select GDP, Country and Population variables from dataset 
+GDP_vs_pop <- LifeExp_data %>% 
+  select(
+    Country, 
+    GDP_per_capita, 
+    Population
+  )
+
+# Summarize data
+summary_table2 <- GDP_vs_pop %>% 
+  group_by(Country) %>% 
+  summarise(
+    mean_population = mean(Population, na.rm = TRUE),
+    mean_GDP_per_capita = mean(GDP_per_capita, na.rm = TRUE)
+  ) %>% 
+  arrange(mean_population)
+
+# Display table with kable
+kable(summary_table2, caption = "Summary table of GDP per capita and Population by Country")
+```
+
+
 ### Section 6: Visualisations 
 
 ```{r}
