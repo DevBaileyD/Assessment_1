@@ -47,7 +47,7 @@ This report will explore the relationship between GDP per capita, a key indicato
 
 ### Section 3: Data Set Introduction
 
-The data used in this report (available [here](https://ourworldindata.org/life-expectancy)) is sourced from the _Life Expectancy vs. GDP per Capita, 2022_ chart found in the _Population and Demographic Change_ topic on [Our World in Data](https://ourworldindata.org/). It is intended to investigate the relationship between life expectancy and various economic and demographic variables across multiple countries over several decades. A link to the locatino of the data used in this report is provided. 
+The data used in this report (available [here](https://ourworldindata.org/life-expectancy)) is sourced from the _Life Expectancy vs. GDP per Capita, 2022_ chart found in the _Population and Demographic Change_ topic on [Our World in Data](https://ourworldindata.org/). It is intended to investigate the relationship between life expectancy and various economic and demographic variables across multiple countries over several decades. A link to the location of the data used in this report is provided. 
 
 The dataset includes variables such as **Country**, **Year**, **GDP per Capita**, **Life Expectancy**, and **Population**, with thousands of observations across many countries and years. These variables provide insights into the economic and demographic factors that influence life expectancy globally.
 
@@ -66,7 +66,7 @@ kable(variable_names_table, caption = "Table of column names")
 ### Section 4: Data Set Description 
 
 
-The data set has undergone data wrangling and cleanup to ensure that it fits within the desired assessment specifications. The main transformations include selecting only the 5 columns/variables listed above, removing missing values and filtering the Years variables for 5 year intervals starting at 2005. Following these transformations, the dataset is ready for analysis and contains `r nrow(LifeExp_data)` observatinos and `r ncol(LifeExp_data)` variables. 
+The data set has undergone data wrangling and cleanup to ensure that it fits within the desired assessment specifications. The main transformations include selecting only the 5 columns/variables (**Country**, **Year**, **GDP per Capita**, **Life Expectancy**, and **Population**), removing missing values and filtering the Years variables for years 2005, 2010, 2015 & 2020. Following these transformations, the dataset is ready for analysis and contains `r nrow(LifeExp_data)` observatinos and `r ncol(LifeExp_data)` variables. 
 
 ```{r figure 1, fig.align= "center", fig.cap="Screenshot of Code", out.height= "70%", out.width= "70%"}
 knitr::include_graphics("Image/Screenshot_code.PNG")
@@ -115,3 +115,10 @@ figure_1
 * *_AS GDP Per capita increases, life expectancy also seems to increase, especially between 0 and 60000 GDP per capita_*
 * *_Life expectancy seems to plateau at approximately 80 years old and 60000 GDP per capita_* 
 
+### Section 7: Conclusions
+
+This report examined the relationship between life expectancy, GDP per capita, and population using publicly available data from Our World in Data. By sorting the data by GDP per capita, we observe a clear trend: countries with lower GDP per capita generally have lower life expectancy. The Central African Republic is a notable example, with a low average GDP per capita of 939.76 and a life expectancy of 49.4 years.
+
+The scatter plot further highlights that countries with GDP per capita below \$30,000 tend to have lower life expectancy, while this relationship plateaus for countries with GDP per capita above \$60,000. These findings suggest that while GDP per capita is a good predictor of life expectancy, other factors are likely involved.
+
+In conclusion, additional data and analysis are needed to refine our understanding and improve predictions of life expectancy.
