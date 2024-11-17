@@ -11,6 +11,7 @@ output: html_document
 library(tidyverse)
 library(knitr)
 library(dplyr)
+library(ggplot2)
 ```
 
 ```{r LoadDataset, eval = TRUE, echo = TRUE}
@@ -99,6 +100,16 @@ kable(summary_table, caption = "Summary table statistics of GDP per capita and L
 
 ### Section 6: Visualisations 
 
+```{r}
+figure_1 <- ggplot(gdp_life_exp_data, aes(x = GDP_per_capita, y = Life_expectancy)) + 
+  geom_point() +
+  labs(title = "Correlation between GDP per capita and life expectancy", 
+       x = "GDP per capita", 
+       y = "Life Expectancy",
+       caption = "Figure 1: A scatter plot showing relationship between GDP per capita and life expectancy")
+
+figure_1
+```
 
 
 
