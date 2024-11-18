@@ -51,7 +51,7 @@ The data used in this report (available [here](https://ourworldindata.org/life-e
 
 The dataset includes variables such as **Country**, **Year**, **GDP per Capita**, **Life Expectancy**, and **Population**, with thousands of observations across many countries and years. These variables provide insights into the economic and demographic factors that influence life expectancy globally.
 
-```{r}
+```{r variables}
 
 # Retrieve the variable names from LifeExp_data
 variable_names <- colnames(LifeExp_data)
@@ -78,7 +78,7 @@ str(LifeExp_data[1:2, ])
 
 ### Section 5: Data Summary
 
-```{r}
+```{r table 1, eval = TRUE, echo = TRUE}
 gdp_life_exp_data <- LifeExp_data %>% 
   select(
     Country, 
@@ -98,6 +98,7 @@ summary_table <- gdp_life_exp_data %>%
 kable(summary_table, caption = "Summary table statistics of GDP per capita and Life expectancy by country")
 ```
 
+<<<<<<< HEAD
 
 Decription Table 1:
 
@@ -124,10 +125,38 @@ kable(comparison_table, caption = "Table showing first 10 rows of countries aver
 
 Description table 2: 
 
+=======
+```{r table 2, eval = TRUE, echo = TRUE, warning = FALSE, message= FALSE}
+# select GDP, Country and Population variables from dataset 
+comparison_data <- LifeExp_data %>% 
+  select(
+    Country, 
+    GDP_per_capita, 
+    Population,
+    Year, 
+    Life_expectancy
+  )
+
+# Summarize data
+summary_table2 <- comparison_data %>% 
+  group_by(Country, Year) %>% 
+  arrange(Country) %>% 
+  summarise(
+    Avg_GDP_per_capita = mean(GDP_per_capita, na.rm = TRUE),
+    Avg_population = mean(Population, na.rm = TRUE),
+    Avg_LifeExp = mean(Life_expectancy, na.rm = TRUE)
+  ) %>% 
+  head(20)
+
+# Display table with kable
+kable(summary_table2, caption = "Comparison table showing change over time of GDP, Life Expectancy and population in each country")
+```
+
+>>>>>>> ExpansionBranch
 
 ### Section 6: Visualisations 
 
-```{r}
+```{r plot 1, eval = TRUE, echo = TRUE}
 figure_1 <- ggplot(gdp_life_exp_data, aes(x = GDP_per_capita, y = Life_expectancy)) + 
   geom_point() +
   labs(title = "Correlation between GDP per capita and life expectancy", 
@@ -141,6 +170,27 @@ figure_1
 
 * *_AS GDP Per capita increases, life expectancy also seems to increase, especially between 0 and 60000 GDP per capita_*
 * *_Life expectancy seems to plateau at approximately 80 years old and 60000 GDP per capita_* 
+
+```{r plot 2, eval = TRUE, echo = TRUE}
+
+comparison_data <- comparison_data %>% 
+  mutate(
+    Country = as.factor(Country)
+  )
+
+figure_2 <- ggplot(comparison_data, aes(x = GDP_per_capita, y = Population)) + 
+  geom_line() + 
+  facet_wrap(~Year) +
+  labs(title = "Plot of GDP per capita and Population at 4 different time points", 
+       x = "GDP per capita", 
+       y = "Population",
+       caption = "Figure 2: Line plots showing relationship between GDP per capita and Population over time") + 
+  theme(plot.caption = element_text(size = 10, face = "italic", hjust = 0.5))
+
+figure_2
+  
+```
+
 
 ### Section 7: Conclusions
 
