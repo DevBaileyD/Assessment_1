@@ -98,34 +98,9 @@ summary_table <- gdp_life_exp_data %>%
 kable(summary_table, caption = "Summary table statistics of GDP per capita and Life expectancy by country")
 ```
 
-<<<<<<< HEAD
+The summary table above shows a general trend where GDP per capita tends to **increase** with average life expectancy. However, this pattern is not always true, as some countries with lower GDP per capita exhibit higher life expectancy than those with higher GDP per capita— one example of this woudl be Central African Republic. 
 
-Decription Table 1:
 
-```{r}
-GDP_lifeExp_Pop <- LifeExp_data %>% 
-  select(
-    Country, 
-    GDP_per_capita, 
-    Life_expectancy, 
-    Population
-  )
-
-comparison_table <- GDP_lifeExp_Pop %>% 
-  group_by(Country) %>% 
-  summarise(Avg_GDP_PerCap = mean((GDP_per_capita), na.rm = TRUE),
-            Avg_lfieExpectancy = mean((Life_expectancy), na.rm = TRUE),
-            Avg_population = mean((Population), na.rm = TRUE)
-            ) %>% 
-  arrange(Avg_GDP_PerCap) %>% 
-  head(10)
-
-kable(comparison_table, caption = "Table showing first 10 rows of countries average GDP per capita, Life Expectancy and Population for comparisons")
-```
-
-Description table 2: 
-
-=======
 ```{r table 2, eval = TRUE, echo = TRUE, warning = FALSE, message= FALSE}
 # select GDP, Country and Population variables from dataset 
 comparison_data <- LifeExp_data %>% 
@@ -152,7 +127,8 @@ summary_table2 <- comparison_data %>%
 kable(summary_table2, caption = "Comparison table showing change over time of GDP, Life Expectancy and population in each country")
 ```
 
->>>>>>> ExpansionBranch
+In this second table, we can observe the changes in GDP per capita, population and life expectancy over time. From this table (showing only the first 20 rows), we can see that as we move through each snap shot in time, GDP per capita seems to be increasing, as does population and and life expectancy in most cases. 
+
 
 ### Section 6: Visualisations 
 
