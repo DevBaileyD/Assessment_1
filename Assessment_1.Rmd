@@ -98,6 +98,33 @@ summary_table <- gdp_life_exp_data %>%
 kable(summary_table, caption = "Summary table statistics of GDP per capita and Life expectancy by country")
 ```
 
+
+Decription Table 1:
+
+```{r}
+GDP_lifeExp_Pop <- LifeExp_data %>% 
+  select(
+    Country, 
+    GDP_per_capita, 
+    Life_expectancy, 
+    Population
+  )
+
+comparison_table <- GDP_lifeExp_Pop %>% 
+  group_by(Country) %>% 
+  summarise(Avg_GDP_PerCap = mean((GDP_per_capita), na.rm = TRUE),
+            Avg_lfieExpectancy = mean((Life_expectancy), na.rm = TRUE),
+            Avg_population = mean((Population), na.rm = TRUE)
+            ) %>% 
+  arrange(Avg_GDP_PerCap) %>% 
+  head(10)
+
+kable(comparison_table, caption = "Table showing first 10 rows of countries average GDP per capita, Life Expectancy and Population for comparisons")
+```
+
+Description table 2: 
+
+
 ### Section 6: Visualisations 
 
 ```{r}
