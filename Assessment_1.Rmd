@@ -144,7 +144,7 @@ figure_1 <- ggplot(gdp_life_exp_data, aes(x = GDP_per_capita, y = Life_expectanc
 figure_1
 ```
 
-* *_AS GDP Per capita increases, life expectancy also seems to increase, especially between 0 and 60000 GDP per capita_*
+* *_As GDP Per capita increases, life expectancy also seems to increase, especially between 0 and 60000 GDP per capita_*
 * *_Life expectancy seems to plateau at approximately 80 years old and 60000 GDP per capita_* 
 
 ```{r plot 2, eval = TRUE, echo = TRUE}
@@ -166,6 +166,9 @@ figure_2 <- ggplot(comparison_data, aes(x = GDP_per_capita, y = Population)) +
 figure_2
   
 ```
+
+* *_As we move throught the snapshots in time, GDP per capita is increasing slightly evidence by the spikes in population moving slightly further to the right on the x-axis_*
+* *_Population increases with GDP throughout time, shown in the plot by the spikes growing taller on the y-axis through the snapshots in time_* 
 
 
 ### Section 7: Conclusions
